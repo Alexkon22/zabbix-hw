@@ -50,6 +50,7 @@ zcat /usr/share/zabbix-sql-scripts/postgresql/server.sql.gz | sudo -u zabbix psq
 # Запуск процессов Zabbix сервера и агента
 systemctl restart zabbix-server zabbix-agent httpd php-fpm
 systemctl enable zabbix-server zabbix-agent httpd php-fpm
-**Скриншот авторизации в админке:**
+###Скриншот 
 
-![Авторизация в Zabbix](img/ZabixAd.png)
+![Авторизация в Zabbix](https://raw.githubusercontent.com/Alexkon22/zabbix-hw/main/img/ZabixAd.png)
+

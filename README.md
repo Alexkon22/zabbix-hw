@@ -56,3 +56,47 @@ systemctl enable zabbix-server zabbix-agent httpd php-fpm
 
 
 ![Скриншот авторизации Zabbix](img/ZabixAd.png)
+
+
+
+
+
+## Задание 2: Установка Zabbix Agent на хосты
+
+### Сами Хосты
+![Скриншот хостов](img/hosts.png)
+
+### Логи Агента
+![Скриншот логов](img/logs.png)
+
+### Мониторинг Latest
+![Скриншот мониторинга](img/uzly.png)
+
+### Использованные команды
+
+```bash
+
+# Установка репозитория Zabbix
+sudo rpm -Uvh https://repo.zabbix.com/zabbix/7.0/rhel/9/x86_64/zabbix-release-latest-7.0.el9.noarch.rpm
+
+# Установка агента
+sudo dnf install zabbix-agent -y
+
+# Редактирование конфига
+sudo nano /etc/zabbix/zabbix_agentd.conf
+
+# Основные параметры
+Server=192.168.200.178
+ServerActive=192.168.200.178
+Hostname=test_host
+
+# Запуск и автозагрузка
+sudo systemctl start zabbix-agent
+sudo systemctl enable zabbix-agent
+
+# Проверка связи
+zabbix_get -s 192.168.200.170 -p 10050 -k agent.ping
+
+# Просмотр лога
+sudo tail -30 /var/log/zabbix/zabbix_agentd.log
+```

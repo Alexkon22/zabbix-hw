@@ -47,4 +47,4 @@ systemctl enable zabbix-server zabbix-agent httpd php-fpm
 ```
 ### скриншоты 
 
-![Скриншот авторизации Zabbix](zabbix.png)
+![Скриншот авторизации Zabbix](`ZabixAd.png`)
